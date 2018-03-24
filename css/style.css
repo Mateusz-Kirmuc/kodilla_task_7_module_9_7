@@ -3,4 +3,9 @@
   margin-bottom: 20px;
 }
 
+#js-playerPickElement,
+#js-resultsTableElement {
+  display: none;
+}
+
 /*# sourceMappingURL=style.css.map */
