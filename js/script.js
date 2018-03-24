@@ -1,3 +1,5 @@
+// ---- VIEW MODEL ----
+
 // Nodes
 var newGameBtn = document.getElementById('js-newGameButton');
 var pickRock = document.getElementById('js-playerPick_rock'),
@@ -12,6 +14,26 @@ function newGame() {
   console.log("newGame handler works!");
 }
 
+/*
+ * Update view based on gameState model data
+ */
+function setGameElements() {
+  switch (gameState) {
+    case 'started':
+      newGameElem.style.display = 'none';
+      pickElem.style.display = 'block';
+      resultsElem.style.display = 'block';
+      break;
+    case 'ended':
+      newGameBtn.innerText = 'Jeszcze raz';
+    case 'notStarted':
+    default:
+      newGameElem.style.display = 'block';
+      pickElem.style.display = 'none';
+      resultsElem.style.display = 'none';
+  }
+}
+
 
 newGameBtn.addEventListener('click', newGame);
 pickRock.addEventListener('click', function() {
@@ -24,7 +46,8 @@ pickScissors.addEventListener('click', function() {
   playerPick('scissors');
 });
 
-// Game data
+// ---- MODEL ----
+
 var gameState = 'notStarted', //started // ended
   player = {
     name: '',
