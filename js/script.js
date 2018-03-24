@@ -14,6 +14,11 @@ var playerPointsElem = document.getElementById('js-playerPoints'),
   playerNameElem = document.getElementById('js-playerName'),
   computerPointsElem = document.getElementById('js-computerPoints');
 
+var playerPickElem = document.getElementById('js-playerPick'),
+  computerPickElem = document.getElementById('js-computerPick'),
+  playerResultElem = document.getElementById('js-playerResult'),
+  computerResultElem = document.getElementById('js-computerResult');
+
 newGameBtn.addEventListener('click', newGame);
 pickRock.addEventListener('click', function() {
   playerPick('rock');
@@ -44,7 +49,7 @@ var gameState = 'notStarted', //started // ended
 
 /*
  * Init user input, amend model and view using user input and call
- * setGameElements 
+ * setGameElements
  */
 function newGame() {
   player.name = prompt('Please enter your name', 'imię gracza');
@@ -75,6 +80,23 @@ function setGameElements() {
       pickElem.style.display = 'none';
       resultsElem.style.display = 'none';
   }
+}
+
+/*
+ * Function returns random computer choice
+ */
+function getComputerPick() {
+  var possiblePicks = ['rock', 'paper', 'scissors'];
+  return possiblePicks[Math.floor(Math.random() * 3)];
+}
+
+/*
+ * Function updates view based on user and computer picks
+ */
+function playerPick(playerPick) {
+  var computerPick = getComputerPick();
+  playerPickElem.innerHTML = playerPick;
+  computerPickElem.innerHTML = computerPick;
 }
 
 // ---- ! VIEW MODEL ----
