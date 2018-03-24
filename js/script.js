@@ -97,6 +97,27 @@ function playerPick(playerPick) {
   var computerPick = getComputerPick();
   playerPickElem.innerHTML = playerPick;
   computerPickElem.innerHTML = computerPick;
+  checkRoundWinner(playerPick, computerPick);
+}
+
+function checkRoundWinner(playerPick, computerPick) {
+  playerResultElem.innerHTML = computerResultElem.innerHTML = '';
+  var winnerIs = 'player';
+  if (playerPick == computerPick) {
+    winnerIs = 'noone'; // remis
+  } else if (
+    (computerPick == 'rock' && playerPick == 'scissors') ||
+    (computerPick == 'scissors' && playerPick == 'paper') ||
+    (computerPick == 'paper' && playerPick == 'rock')) {
+    winnerIs = 'computer';
+  }
+  if (winnerIs == 'player') {
+    playerResultElem.innerHTML = "Win!";
+    player.score++;
+  } else if (winnerIs == 'computer') {
+    computerResultElem.innerHTML = "Win!";
+    computer.score++;
+  }
 }
 
 // ---- ! VIEW MODEL ----
