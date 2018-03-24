@@ -38,14 +38,23 @@ var gameState = 'notStarted', //started // ended
     score: 0
   };
 
-setGameElements();
-
 // ---- ! MODEL ----
 
 // ---- VIEW MODEL ----
 
+/*
+ * Init user input, amend model and view using user input and call
+ * setGameElements 
+ */
 function newGame() {
-  console.log("newGame handler works!");
+  player.name = prompt('Please enter your name', 'imię gracza');
+  if (player.name) {
+    player.score = computer.score = 0;
+    gameState = 'started';
+    setGameElements();
+    playerNameElem.innerHTML = player.name;
+    // setGamePoints(); // This function has not been created yet
+  }
 }
 
 /*
