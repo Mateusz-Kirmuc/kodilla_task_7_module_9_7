@@ -3,6 +3,9 @@ var newGameBtn = document.getElementById('js-newGameButton');
 var pickRock = document.getElementById('js-playerPick_rock'),
   pickPaper = document.getElementById('js-playerPick_paper'),
   pickScissors = document.getElementById('js-playerPick_scissors');
+var newGameElem = document.getElementById('js-newGameElement'),
+  pickElem = document.getElementById('js-playerPickElement'),
+  resultsElem = document.getElementById('js-resultsTableElement');
 
 // Event Handlers
 function newGame() {
