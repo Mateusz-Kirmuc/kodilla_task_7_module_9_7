@@ -58,7 +58,7 @@ function newGame() {
     gameState = 'started';
     setGameElements();
     playerNameElem.innerHTML = player.name;
-    // setGamePoints(); // This function has not been created yet
+    setGamePoints();
   }
 }
 
@@ -98,8 +98,12 @@ function playerPick(playerPick) {
   playerPickElem.innerHTML = playerPick;
   computerPickElem.innerHTML = computerPick;
   checkRoundWinner(playerPick, computerPick);
+  setGamePoints();
 }
 
+/*
+ Function determine the winner based on usr and comp choice
+ */
 function checkRoundWinner(playerPick, computerPick) {
   playerResultElem.innerHTML = computerResultElem.innerHTML = '';
   var winnerIs = 'player';
@@ -118,6 +122,11 @@ function checkRoundWinner(playerPick, computerPick) {
     computerResultElem.innerHTML = "Win!";
     computer.score++;
   }
+}
+
+function setGamePoints() {
+  playerPointsElem.innerHTML = player.score;
+  computerPointsElem.innerHTML = computer.score;
 }
 
 // ---- ! VIEW MODEL ----
