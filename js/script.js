@@ -1,6 +1,5 @@
-// ---- VIEW MODEL ----
+// ---- VIEW ----
 
-// Nodes
 var newGameBtn = document.getElementById('js-newGameButton');
 var pickRock = document.getElementById('js-playerPick_rock'),
   pickPaper = document.getElementById('js-playerPick_paper'),
@@ -9,7 +8,36 @@ var newGameElem = document.getElementById('js-newGameElement'),
   pickElem = document.getElementById('js-playerPickElement'),
   resultsElem = document.getElementById('js-resultsTableElement');
 
-// Event Handlers
+newGameBtn.addEventListener('click', newGame);
+pickRock.addEventListener('click', function() {
+  playerPick('rock');
+});
+pickPaper.addEventListener('click', function() {
+  playerPick('paper');
+});
+pickScissors.addEventListener('click', function() {
+  playerPick('scissors');
+});
+
+// ---- ! VIEW ----
+
+// ---- MODEL ----
+
+var gameState = 'notStarted', //started // ended
+player = {
+  name: '',
+  score: 0
+},
+computer = {
+  score: 0
+};
+
+setGameElements();
+
+// ---- ! MODEL ----
+
+// ---- VIEW MODEL ----
+
 function newGame() {
   console.log("newGame handler works!");
 }
@@ -25,7 +53,7 @@ function setGameElements() {
       resultsElem.style.display = 'block';
       break;
     case 'ended':
-      newGameBtn.innerText = 'Jeszcze raz';
+      newGameBtn.innerText = 'Play again';
     case 'notStarted':
     default:
       newGameElem.style.display = 'block';
@@ -34,25 +62,4 @@ function setGameElements() {
   }
 }
 
-
-newGameBtn.addEventListener('click', newGame);
-pickRock.addEventListener('click', function() {
-  playerPick('rock');
-});
-pickPaper.addEventListener('click', function() {
-  playerPick('paper');
-});
-pickScissors.addEventListener('click', function() {
-  playerPick('scissors');
-});
-
-// ---- MODEL ----
-
-var gameState = 'notStarted', //started // ended
-  player = {
-    name: '',
-    score: 0
-  },
-  computer = {
-    score: 0
-  };
+// ---- ! VIEW MODEL ----
