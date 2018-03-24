@@ -11,6 +11,22 @@ function newGame() {
 
 
 newGameBtn.addEventListener('click', newGame);
-pickRock.addEventListener('click', function() { playerPick('rock'); });
-pickPaper.addEventListener('click', function() { playerPick('paper'); });
-pickScissors.addEventListener('click', function() { playerPick('scissors'); });
+pickRock.addEventListener('click', function() {
+  playerPick('rock');
+});
+pickPaper.addEventListener('click', function() {
+  playerPick('paper');
+});
+pickScissors.addEventListener('click', function() {
+  playerPick('scissors');
+});
+
+// Game data
+var gameState = 'notStarted', //started // ended
+  player = {
+    name: '',
+    score: 0
+  },
+  computer = {
+    score: 0
+  };
