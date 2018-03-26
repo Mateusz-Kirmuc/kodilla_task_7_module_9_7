@@ -99,6 +99,7 @@ function playerPick(playerPick) {
   computerPickElem.innerHTML = computerPick;
   checkRoundWinner(playerPick, computerPick);
   setGamePoints();
+  determineGameWinner();
 }
 
 /*
@@ -127,6 +128,19 @@ function checkRoundWinner(playerPick, computerPick) {
 function setGamePoints() {
   playerPointsElem.innerHTML = player.score;
   computerPointsElem.innerHTML = computer.score;
+}
+/*
+ * Function informs which player wins and updates gameState 
+ */
+function determineGameWinner() {
+  if (player.score == 10 || computer.score == 10) {
+    gameState = "ended";
+  }
+  if (player.score == 10) {
+    alert("Player wins!");
+  } else if (computer.score == 10) {
+    alert("Computer wins!");
+  }
 }
 
 // ---- ! VIEW MODEL ----
