@@ -103,13 +103,13 @@ function playerPick(playerPick) {
 }
 
 /*
- Function determine the winner based on usr and comp choice
+ * Function determine the winner based on user and computer choice
  */
 function checkRoundWinner(playerPick, computerPick) {
   playerResultElem.innerHTML = computerResultElem.innerHTML = '';
   var winnerIs = 'player';
   if (playerPick == computerPick) {
-    winnerIs = 'noone'; // remis
+    winnerIs = 'noone'; // tie
   } else if (
     (computerPick == 'rock' && playerPick == 'scissors') ||
     (computerPick == 'scissors' && playerPick == 'paper') ||
@@ -129,8 +129,9 @@ function setGamePoints() {
   playerPointsElem.innerHTML = player.score;
   computerPointsElem.innerHTML = computer.score;
 }
+
 /*
- * Function informs which player wins and updates gameState
+ * Function informs which player won and updates gameState
  */
 function determineGameWinner() {
   if (player.score == 10) {
